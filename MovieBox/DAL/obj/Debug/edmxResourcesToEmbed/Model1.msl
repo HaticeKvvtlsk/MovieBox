@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MovieBoxDBModelStoreContainer" CdmEntityContainer="MovieBoxDBEntities">
+    <EntitySetMapping Name="Duyurular">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Duyurular">
+        <MappingFragment StoreEntitySet="Duyurular">
+          <ScalarProperty Name="DuyuruId" ColumnName="DuyuruId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="duyuruIcerik" ColumnName="duyuruIcerik" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filmler">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Filmler">
+        <MappingFragment StoreEntitySet="Filmler">
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+          <ScalarProperty Name="VizyonTarihi" ColumnName="VizyonTarihi" />
+          <ScalarProperty Name="FilmSuresi" ColumnName="FilmSuresi" />
+          <ScalarProperty Name="Konusu" ColumnName="Konusu" />
+          <ScalarProperty Name="FilmOdul" ColumnName="FilmOdul" />
+          <ScalarProperty Name="YasSiniri" ColumnName="YasSiniri" />
+          <ScalarProperty Name="Ulkesi" ColumnName="Ulkesi" />
+          <ScalarProperty Name="FilmResim" ColumnName="FilmResim" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="FragmanSuresi" ColumnName="FragmanSuresi" />
+          <ScalarProperty Name="FragmanVideo" ColumnName="FragmanVideo" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FilmOyuncular">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.FilmOyuncular">
+        <MappingFragment StoreEntitySet="FilmOyuncular">
+          <ScalarProperty Name="FilmOyuncuId" ColumnName="FilmOyuncuId" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoriler">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullaniciFilmListesi">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.KullaniciFilmListesi">
+        <MappingFragment StoreEntitySet="KullaniciFilmListesi">
+          <ScalarProperty Name="KullaniciFilmDetayId" ColumnName="KullaniciFilmDetayId" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="izlenmeTarih" ColumnName="izlenmeTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="KullaniciSoyadi" ColumnName="KullaniciSoyadi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+          <ScalarProperty Name="TCKN" ColumnName="TCKN" />
+          <ScalarProperty Name="KullaniciMail" ColumnName="KullaniciMail" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oyuncular">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Oyuncular">
+        <MappingFragment StoreEntitySet="Oyuncular">
+          <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
+          <ScalarProperty Name="OyuncuAdi" ColumnName="OyuncuAdi" />
+          <ScalarProperty Name="OyuncuSoyadi" ColumnName="OyuncuSoyadi" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="Ulkesi" ColumnName="Ulkesi" />
+          <ScalarProperty Name="OyuncuOdulleri" ColumnName="OyuncuOdulleri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roller">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Roller">
+        <MappingFragment StoreEntitySet="Roller">
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+          <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yonetmenler">
+      <EntityTypeMapping TypeName="MovieBoxDBModel.Yonetmenler">
+        <MappingFragment StoreEntitySet="Yonetmenler">
+          <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
+          <ScalarProperty Name="YonetmenAdi" ColumnName="YonetmenAdi" />
+          <ScalarProperty Name="YonetmenSoyadi" ColumnName="YonetmenSoyadi" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

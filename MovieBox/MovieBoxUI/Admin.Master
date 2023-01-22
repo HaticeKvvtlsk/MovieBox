@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="MovieBoxUI.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table, thead {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            /*overflow-x:auto;
+            padding-top: 16px;*/
+        }
+
+            .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: inherit;
+                font-size: 15px;
+                color: #818181;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+        .main {
+            margin-left: 120px; /* Same as the width of the sidenav */
+            padding: 30px 100px;
+            font-size: small;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="sidebar">
+
+                <a href="Admin.aspx"><i class="fa fa-fw fa-home"></i>ANASAYFA</a>
+                <a href="Kullanicilar.aspx"><i class="fa fa-fw fa-wrench"></i>KULLANICILAR</a>
+                <a href="#clients"><i class="fa fa-fw fa-user"></i>ŞİFRELER</a>
+                <a href="#contact"><i class="fa fa-fw fa-envelope"></i>İLETİŞİM</a>
+            </div>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
