@@ -1,17 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="MovieBoxUI.Admin1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<style type="text/css">
-         body {
+    <style type="text/css">
+        body {
             font-family: "Open Sans", sans-serif;
             line-height: 1.25;
         }
 
         table {
             table-layout: fixed;
-            width:stretch;
+            width: stretch;
         }
+
             table th {
                 background: #999;
                 color: #fff;
@@ -25,28 +27,27 @@
                 overflow: hidden;
                 text-overflow: clip;
                 text-align: center;
-
             }
 
 
         .table-title .add-new i {
             margin-right: 4px;
         }
-        
-     
     </style>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <div class="table-filmler">
         <div class="header">
             FİLMLER
-       <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Add New</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Insert</button>
 
         </div>
 
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
-                 <asp:TemplateField HeaderText="FilmId">
+                <asp:TemplateField HeaderText="FilmId">
                     <ItemTemplate>
                         <asp:Label ID="lblFilmId" runat="server" Text='<%#Eval("FilmId")%>'></asp:Label>
                     </ItemTemplate>
@@ -173,7 +174,7 @@
                         <asp:TextBox ID="txtKategoriId" MaxLength="15" runat="server" Text='<%#Eval("KategoriId")%>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
-               <asp:TemplateField>
+                <asp:TemplateField>
                     <ItemTemplate>
                         <asp:Button ID="BtnDelete" runat="server" Text="Sil" CommandName="Delete" CommandArgument='<%#Eval("FilmId")%>' />
                     </ItemTemplate>
@@ -190,6 +191,108 @@
             </Columns>
 
         </asp:GridView>
-     
     </div>
+    <div id="exampleModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Film Ekleme Formu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <section class="section">
+                    <div class="section-header">
+                    </div>
+                    <div class="section-body">
+                        <div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <b>Film Adı : </b>
+                                        <br />
+                                        <asp:TextBox ID="txtFilmAdi" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Vizyon Tarihi : </b>
+                                        <br />
+                                        <asp:TextBox ID="txtVizyonTarihi" type="date" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Film Süresi : </b>
+                                        <br />
+                                        <asp:TextBox ID="txtFilmSüresi" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Konusu :</b>
+                                        <br />
+                                        <asp:TextBox ID="txtFilmKonusu" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <b>Film Ödül : </b>
+                                        <br />
+                                        <asp:TextBox ID="txtodul" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <b>Yaş Sınırı : </b>
+                                        <br />
+                                        <asp:TextBox ID="txtYasSiniri" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Ülkesi : </b>
+                                        <br />
+                                        <asp:TextBox ID="txtulke" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <b>Resim : </b>
+                                        <br />
+                                        <asp:FileUpload ID="FileUpload1" CssClass="form-control" runat="server" />
+
+
+                                        <div class="form-group">
+                                            <b>Video : </b>
+                                            <br />
+                                            <asp:TextBox ID="txtVideo" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Fragman Süresi : </b>
+                                            <br />
+                                            <asp:TextBox ID="txtFragmanSuresi" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Fragman Video : </b>
+                                            <br />
+                                            <asp:TextBox ID="txtFragmanVideo" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Yonetmen : </b>
+                                            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Kategori : </b>
+                                            <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="modal-footer">
+
+                    <asp:Button ID="btnKaydet" runat="server" Text="Kaydet" OnClick="btnKaydet_Click" />
+                    <asp:Button ID="btnKapat" runat="server" Text="Vazgeç" data-dismiss="modal" /><br />
+                    <br />
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </asp:Content>

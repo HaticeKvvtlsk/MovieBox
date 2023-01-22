@@ -51,7 +51,9 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FilmRepository.cs" />
+    <Compile Include="Repositories\KategoriRepository.cs" />
     <Compile Include="Repositories\KullaniciRepository.cs" />
+    <Compile Include="Repositories\YonetmenRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

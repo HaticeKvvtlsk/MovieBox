@@ -11,12 +11,39 @@ namespace MovieBoxUI
     public partial class Admin1 : System.Web.UI.Page
     {
         FilmRepository filmrepo = new FilmRepository();
+        YonetmenRepository yonRepo = new YonetmenRepository();
+        KategoriRepository kategoriRepo = new KategoriRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (IsPostBack) return;
+
             FilmleriGetir();
+            YonetmenListe();
+            KategoriListe();
+        }
+
+        private void KategoriListe()
+        {
+            DropDownList2.DataSource = kategoriRepo.GetAll();
+            DropDownList2.DataTextField = "KategoriAdi";
+            DropDownList2.DataValueField = "KategoriId";
+            DropDownList2.DataBind();
+        }
+
+        private void YonetmenListe()
+        {
+            DropDownList1.DataSource = yonRepo.GetAll().Select(a => new
+            {
+                YonetmenId = a.YonetmenId,
+                Yonetmen = a.YonetmenAdi + " " + a.YonetmenSoyadi,
+                YonetmenDTarih = a.DogumTarihi,
+                YonetmenCinsiyet = a.DogumTarihi
+            });
+            DropDownList1.DataTextField = "Yonetmen";
+            DropDownList1.DataValueField = "YonetmenId";
+            DropDownList1.DataBind();
         }
 
         private void FilmleriGetir()
@@ -83,6 +110,7 @@ namespace MovieBoxUI
             secilen.Konusu = konusu;
             secilen.FilmOdul = filmOdul;
             secilen.YasSiniri = Convert.ToInt32(yasSiniri);
+            secilen.Ulkesi = Ulke;
             secilen.FilmResim = filmResim;
             secilen.Video = Video;
             secilen.FragmanSuresi = Convert.ToDecimal(FragmanSuresi);
@@ -96,5 +124,47 @@ namespace MovieBoxUI
             GridView1.EditIndex = -1;
             FilmleriGetir();
         }
+
+        protected void btnKaydet_Click(object sender, EventArgs e)
+        {
+            string FilmAdi = txtFilmAdi.Text;
+            DateTime vizyonTarihi = Convert.ToDateTime(txtVizyonTarihi.Text);
+            decimal FilmSuresi = Convert.ToDecimal(txtFilmSüresi.Text);
+            string Konu = txtFilmKonusu.Text;
+            string FilmOdul = txtodul.Text;
+            string YasSiniri = txtYasSiniri.Text;
+            string Ulke = txtulke.Text;
+            string resim = FileUpload1.FileName;
+            string video = txtVideo.Text;
+            decimal FragmanSuresi = Convert.ToDecimal(txtFragmanSuresi.Text);
+            string Fragmanvideo = txtFragmanVideo.Text;
+            var Yonetmen = DropDownList1.SelectedValue;
+            var Kategori = DropDownList2.SelectedValue;
+
+
+
+            filmrepo.insert(new DAL.Filmler
+            {
+                FilmAdi = FilmAdi,
+                VizyonTarihi = vizyonTarihi,
+                FilmSuresi = Convert.ToInt32(FilmSuresi),
+                Konusu = Konu,
+                FilmOdul = FilmOdul,
+                YasSiniri = Convert.ToInt32(YasSiniri),
+                Ulkesi = Ulke,
+                FilmResim = resim,
+                Video = video,
+                FragmanSuresi = FragmanSuresi,
+                FragmanVideo = Fragmanvideo,
+                isDeleted = false,
+                YonetmenId = Convert.ToInt32(Yonetmen),
+                KategoriId = Convert.ToInt32(Kategori)
+
+            });
+
+            FilmleriGetir();
+
+        }
     }
+
 }
