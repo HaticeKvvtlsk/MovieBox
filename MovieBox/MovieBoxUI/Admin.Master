@@ -5,10 +5,10 @@
 <html>
 <head runat="server">
     <title></title>
-    <style>
+    <style type="text/css">
         body {
             font-family: "Lato", sans-serif;
-        }
+                    }
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
@@ -26,65 +26,192 @@
             padding: 8px;
         }
 
-        .sidebar {
-            height: 100%;
-            width: 160px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            /*overflow-x:auto;
-            padding-top: 16px;*/
+     
+        .wrapper {
+            display: flex;
+            margin-top: -20px
         }
 
-            .sidebar a {
-                padding: 6px 8px 6px 16px;
-                text-decoration: inherit;
-                font-size: 15px;
-                color: #818181;
+        #sidebar {
+            min-width: 200px;
+            max-width: 200px;
+            color: #fff;
+            background: #112F41;
+            transition: all 0.3s;
+            font-size:15px;
+            
+       /*       position: fixed;*/
+        }
+
+            /* Butona tıkladığımızda menünün genişliği kadar sola kaymasını sağladık. */
+            #sidebar.active {
+                margin-left: -200px;
+
+            }
+               #sidebarCollapse {
+                display:normal;
+                width:100%;
+                background-color: #112F41;
+                height:50px;
+                position: fixed;
+                border-style:none;
+               
+            }
+            #sidebar .sidebar-header {
+                padding: 20px;
+                background: #112F41;
+            }
+
+            #sidebar ul.components {
+                padding: 20px 0;
+                position:fixed;
+            }
+
+            #sidebar ul p {
+                padding: 10px;
+            }
+
+            #sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
                 display: block;
             }
 
-                .sidebar a:hover {
-                    color: #f1f1f1;
+                #sidebar ul li a:hover {
+                    color: #fff !important;
+                    background: #2076E5;
+                    transition: .3s all ease;
                 }
 
-        .main {
-            margin-left: 120px; /* Same as the width of the sidenav */
-            padding: 30px 100px;
-            font-size: small;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidebar {
-                padding-top: 15px;
+            #sidebar ul li.active > a,
+            a[aria-expanded="true"] {
+                color: #fff;
+                background: #112F41;
             }
 
-                .sidebar a {
-                    font-size: 18px;
-                }
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #003078;
         }
+
+        #content {
+            width: 100%;
+            padding: 50px;
+        }
+
+        @media (max-width:768px) {
+            #sidebar {
+                margin-left: -200px;
+            }
+
+                #sidebar.active {
+                    margin-left: 0;
+                }
+
+            #sidebarCollapse span {
+             
+                width:100%;
+                color:mintcream !important;
+                font-size:20px;
+                
+            }
+        }
+        #b{
+            background-color: #112F41;
+            color:mintcream;
+        }
+      
+    
+
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <!-- Butona tıkladığımızda menünün ortadan kalkması için gerekli jquery kodu -->
+<script>
+    $(document).ready(function () {
+        $("#sidebarCollapse").on('click', function () {
+            $("#sidebar").toggleClass('active');
+        });
+    });
+</script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="sidebar">
+        <nav class="navbar navbar-expand-lg " id="b">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse"  >
+                 <%--   <i class="fas fa-align-left mr-2"></i>--%>
+                    <span>FİLİFİLM</span>
+                </button>
+            </div>
+        </nav>
 
-                <a href="Admin.aspx"><i class="fa fa-fw fa-home"></i>ANASAYFA</a>
-                <a href="Kullanicilar.aspx"><i class="fa fa-fw fa-wrench"></i>KULLANICILAR</a>
-                <a href="#clients"><i class="fa fa-fw fa-user"></i>ŞİFRELER</a>
-                <a href="#contact"><i class="fa fa-fw fa-envelope"></i>İLETİŞİM</a>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#" class="text-light text-decoration-none">AAAAAA</a>
+                    </li>
+                    <li class="active">
+                        <a href="#creditSubmenu" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle text-light text-decoration-none">İŞLEMLER</a>
+                        <ul class="collapse list-unstyled" id="creditSubmenu">
+                            <li><a class="text-light text-decoration-none" href="Admin.aspx">FİLM</a></li>
+                            <li><a class="text-light text-decoration-none" href="Kullanicilar.aspx">KULLANICILAR</a></li>
+                            <li><a class="text-light text-decoration-none" href="Yonetmen.aspx">YÖNETMENLER</a></li>
+                            <li><a class="text-light text-decoration-none" href="#">Separated link</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#sigortaSubmenu" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle text-light text-decoration-none">BBBB</a>
+                        <ul class="collapse list-unstyled" id="sigortaSubmenu">
+                            <li>
+                                <a href="#" class="text-light text-decoration-none">CCCCC</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light text-decoration-none">DDDDDD</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light text-decoration-none">EEEEEE</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light text-decoration-none">FFFFFF</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light text-decoration-none">GGGGGGG</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light text-decoration-none">Hakkımızda</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light text-decoration-none">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="content">
+
+                <div class="main-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
-            <div class="main">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+
 
         </div>
     </form>
 </body>
+
 </html>

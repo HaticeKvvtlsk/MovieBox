@@ -83,6 +83,7 @@
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet2.css" />
     <Content Include="Web.config" />
+    <Content Include="Yonetmen.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.aspx.cs">
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetmen.aspx.cs">
+      <DependentUpon>Yonetmen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetmen.aspx.designer.cs">
+      <DependentUpon>Yonetmen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
