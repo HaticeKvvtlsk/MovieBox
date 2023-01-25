@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        body {
+         body {
             font-family: "Lato", sans-serif;
                     }
 
@@ -26,68 +26,12 @@
             padding: 8px;
         }
 
-     
-        .wrapper {
-            display: flex;
-            margin-top: -20px
-        }
-
-        #sidebar {
-            min-width: 200px;
-            max-width: 200px;
-            color: #fff;
-            background: #112F41;
-            transition: all 0.3s;
-            font-size:15px;
-            
-       /*       position: fixed;*/
-        }
-
-            /* Butona tıkladığımızda menünün genişliği kadar sola kaymasını sağladık. */
-            #sidebar.active {
-                margin-left: -200px;
-
-            }
-               #sidebarCollapse {
-                display:normal;
-                width:100%;
-                background-color: #112F41;
-                height:50px;
-                position: fixed;
-                border-style:none;
-               
-            }
-            #sidebar .sidebar-header {
-                padding: 20px;
-                background: #112F41;
-            }
-
-            #sidebar ul.components {
-                padding: 20px 0;
-                position:fixed;
-            }
-
-            #sidebar ul p {
-                padding: 10px;
-            }
-
-            #sidebar ul li a {
-                padding: 10px;
-                font-size: 1.1em;
-                display: block;
-            }
-
                 #sidebar ul li a:hover {
                     color: #fff !important;
                     background: #2076E5;
                     transition: .3s all ease;
                 }
 
-            #sidebar ul li.active > a,
-            a[aria-expanded="true"] {
-                color: #fff;
-                background: #112F41;
-            }
 
         ul ul a {
             font-size: 0.9em !important;
@@ -99,63 +43,68 @@
             width: 100%;
             padding: 50px;
         }
+      .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #112F41;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-        @media (max-width:768px) {
-            #sidebar {
-                margin-left: -200px;
-            }
+.sidenav a {
+  padding: 8px 8px 8px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
 
-                #sidebar.active {
-                    margin-left: 0;
-                }
+.sidenav a:hover {
+  color: #f1f1f1;
+}
 
-            #sidebarCollapse span {
-             
-                width:100%;
-                color:mintcream !important;
-                font-size:20px;
-                
-            }
-        }
-        #b{
-            background-color: #112F41;
-            color:mintcream;
-        }
-      
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
     
-
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
 
-    <!-- Butona tıkladığımızda menünün ortadan kalkması için gerekli jquery kodu -->
-<script>
-    $(document).ready(function () {
-        $("#sidebarCollapse").on('click', function () {
-            $("#sidebar").toggleClass('active');
-        });
-    });
-</script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg " id="b">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse"  >
-                 <%--   <i class="fas fa-align-left mr-2"></i>--%>
-                    <span>FİLİFİLM</span>
-                </button>
-            </div>
-        </nav>
+  
+        
+<div id="YanMenu" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
 
-        <div class="wrapper">
+  &times;</a>
+<div class="wrapper">
             <nav id="sidebar">
                 <ul class="list-unstyled components">
+
                     <li>
                         <a href="#" class="text-light text-decoration-none">AAAAAA</a>
                     </li>
@@ -163,10 +112,10 @@
                         <a href="#creditSubmenu" data-toggle="collapse" aria-expanded="false"
                             class="dropdown-toggle text-light text-decoration-none">İŞLEMLER</a>
                         <ul class="collapse list-unstyled" id="creditSubmenu">
-                            <li><a class="text-light text-decoration-none" href="Admin.aspx">FİLM</a></li>
+                            <li><a class="text-light text-decoration-none" href="Admin.aspx">FİLMLER</a></li>
                             <li><a class="text-light text-decoration-none" href="Kullanicilar.aspx">KULLANICILAR</a></li>
                             <li><a class="text-light text-decoration-none" href="Yonetmen.aspx">YÖNETMENLER</a></li>
-                            <li><a class="text-light text-decoration-none" href="#">Separated link</a></li>
+                            <li><a class="text-light text-decoration-none" href="Kategori.aspx">KATEGORİLER</a></li>
 
                         </ul>
                     </li>
@@ -201,16 +150,37 @@
                 </ul>
             </nav>
 
-            <div id="content">
+        
+        </div>
+</div>
 
+<div id="main">
+  
+  <span style="font-size:30px;cursor:pointer;   display: flex;
+            align-items: center;
+            font-family: Candara;
+            justify-content: center; background-color:aliceblue !important;" onclick="openNav()">
+
+  &#9776; FİLİFİLM</span>
+     
                 <div class="main-content">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
-            </div>
+</div>
 
+<script>
+    function openNav() {
+        document.getElementById("YanMenu").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
 
-        </div>
+    function closeNav() {
+        document.getElementById("YanMenu").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+        
     </form>
 </body>
 

@@ -77,6 +77,7 @@
     <Content Include="Anasayfa.aspx" />
     <Content Include="Hata.aspx" />
     <Content Include="JavaScript.js" />
+    <Content Include="Kategori.aspx" />
     <Content Include="Kullanicilar.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Hata.aspx.designer.cs">
       <DependentUpon>Hata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kategori.aspx.cs">
+      <DependentUpon>Kategori.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kategori.aspx.designer.cs">
+      <DependentUpon>Kategori.aspx</DependentUpon>
     </Compile>
     <Compile Include="Kullanicilar.aspx.cs">
       <DependentUpon>Kullanicilar.aspx</DependentUpon>
