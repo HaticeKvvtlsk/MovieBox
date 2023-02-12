@@ -12,6 +12,7 @@ namespace MovieBoxUI
     {
         FilmRepository filmrepo = new FilmRepository();
         YonetmenRepository yonRepo = new YonetmenRepository();
+      
         KategoriRepository kategoriRepo = new KategoriRepository();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -70,60 +71,7 @@ namespace MovieBoxUI
             FilmleriGetir();
         }
 
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            GridView1.EditIndex = -1;
-            FilmleriGetir();
-        }
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex;
-            FilmleriGetir();
-        }
-
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-
-
-            Label id = (Label)GridView1.Rows[e.RowIndex].FindControl("lblFilmId") as Label;
-            string ad = (row.FindControl("txtFilmAdi") as TextBox).Text;
-            string vizyontarih = (row.FindControl("txtVizyonTarihi") as TextBox).Text;
-            var filmSuresi = (row.FindControl("txtFilmSuresi") as TextBox).Text;
-            var konusu = (row.FindControl("txtKonusu") as TextBox).Text;
-            var filmOdul = (row.FindControl("txtFilmOdul") as TextBox).Text;
-            var yasSiniri = (row.FindControl("txtYasSiniri") as TextBox).Text;
-            var Ulke = (row.FindControl("txtUlkesi") as TextBox).Text;
-            var filmResim = (row.FindControl("txtFilmResim") as TextBox).Text;
-            var Video = (row.FindControl("txtVideo") as TextBox).Text;
-            var FragmanSuresi = (row.FindControl("txtFragmanSuresi") as TextBox).Text;
-            var FragmanVideo = (row.FindControl("txtFragmanVideo") as TextBox).Text;
-            string isdeleted = (row.FindControl("txtisDeleted") as TextBox).Text;
-            var Yonetmen = (row.FindControl("txtYonetmenId") as TextBox).Text;
-            var Kategori = (row.FindControl("txtKategoriId") as TextBox).Text;
-
-            var secilen = filmrepo.GetById(Convert.ToInt32(id.Text));
-            secilen.FilmAdi = ad;
-            secilen.VizyonTarihi = Convert.ToDateTime(vizyontarih);
-            secilen.FilmSuresi = Convert.ToInt32(filmSuresi);
-            secilen.Konusu = konusu;
-            secilen.FilmOdul = filmOdul;
-            secilen.YasSiniri = Convert.ToInt32(yasSiniri);
-            secilen.Ulkesi = Ulke;
-            secilen.FilmResim = filmResim;
-            secilen.Video = Video;
-            secilen.FragmanSuresi = Convert.ToDecimal(FragmanSuresi);
-            secilen.FragmanVideo = FragmanVideo;
-            secilen.isDeleted = Convert.ToBoolean(isdeleted);
-            secilen.YonetmenId = Convert.ToInt32(Yonetmen);
-            secilen.KategoriId = Convert.ToInt32(Kategori);
-            filmrepo.update(secilen);
-
-
-            GridView1.EditIndex = -1;
-            FilmleriGetir();
-        }
 
         protected void btnKaydet_Click(object sender, EventArgs e)
         {

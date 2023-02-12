@@ -11,17 +11,26 @@ namespace MovieBoxUI
 {
 
 
-    public partial class Admin1
+    public partial class FilmDetay
     {
 
         /// <summary>
-        /// GridView1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// txtFilmID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilmID;
 
         /// <summary>
         /// txtFilmAdi control.
@@ -150,13 +159,13 @@ namespace MovieBoxUI
         protected global::System.Web.UI.WebControls.DropDownList Oyuncuddl;
 
         /// <summary>
-        /// btnKaydet control.
+        /// btnGuncelle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnKaydet;
+        protected global::System.Web.UI.WebControls.Button btnGuncelle;
 
         /// <summary>
         /// btnKapat control.

@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Anasayfa.aspx" />
+    <Content Include="FilmDetay.aspx" />
     <Content Include="Hata.aspx" />
     <Content Include="JavaScript.js" />
     <Content Include="Kategori.aspx" />
@@ -114,6 +115,13 @@
     </Compile>
     <Compile Include="Anasayfa.Master.designer.cs">
       <DependentUpon>Anasayfa.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FilmDetay.aspx.cs">
+      <DependentUpon>FilmDetay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilmDetay.aspx.designer.cs">
+      <DependentUpon>FilmDetay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hata.aspx.cs">
       <DependentUpon>Hata.aspx</DependentUpon>

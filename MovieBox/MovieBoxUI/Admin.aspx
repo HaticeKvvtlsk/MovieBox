@@ -45,7 +45,7 @@
 
         </div>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" >
             <Columns>
                 <asp:TemplateField HeaderText="FilmId">
                     <ItemTemplate>
@@ -179,14 +179,13 @@
                         <asp:Button ID="BtnDelete" runat="server" Text="Sil" CommandName="Delete" CommandArgument='<%#Eval("FilmId")%>' />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField>
+                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="BtnEdit" runat="server" Text="Düzenle" CommandName="Edit" />
+                                             
+                                               
+                     <asp:HyperLink ID="HyperLinkDetay" runat="server" CssClass="btn-success" NavigateUrl='<%#"~/FilmDetay.aspx?FilmID=" + Eval("FilmId")%>'> Detay</asp:HyperLink>
+
                     </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:Button ID="BtnUpdate" runat="server" Text="Güncelle" CommandName="Update" />
-                        <asp:Button ID="BtnCancel" runat="server" Text="Vazgeç" CommandName="Cancel" />
-                    </EditItemTemplate>
                 </asp:TemplateField>
             </Columns>
 
@@ -274,6 +273,11 @@
                                         <div class="form-group">
                                             <b>Kategori : </b>
                                             <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                                        </div>
+                                         <div class="form-group">
+                                            <b>Oyuncu : </b>
+                                            <asp:DropDownList runat="server" ID="Oyuncuddl" CssClass="form-control" ItemType="Checkbox">
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>

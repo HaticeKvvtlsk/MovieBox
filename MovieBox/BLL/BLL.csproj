@@ -53,6 +53,7 @@
     <Compile Include="Repositories\FilmRepository.cs" />
     <Compile Include="Repositories\KategoriRepository.cs" />
     <Compile Include="Repositories\KullaniciRepository.cs" />
+    <Compile Include="Repositories\OyuncuRepository.cs" />
     <Compile Include="Repositories\YonetmenRepository.cs" />
   </ItemGroup>
   <ItemGroup>
