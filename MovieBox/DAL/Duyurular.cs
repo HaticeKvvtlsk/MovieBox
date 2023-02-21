@@ -18,6 +18,7 @@ namespace DAL
         public Nullable<int> KullaniciId { get; set; }
         public string duyuruIcerik { get; set; }
         public Nullable<System.DateTime> tarih { get; set; }
+        public Nullable<bool> isDeleted { get; set; }
     
         public virtual Kullanicilar Kullanicilar { get; set; }
     }

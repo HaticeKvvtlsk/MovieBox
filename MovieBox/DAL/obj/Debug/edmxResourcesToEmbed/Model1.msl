@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Duyurular">
       <EntityTypeMapping TypeName="MovieBoxDBModel.Duyurular">
         <MappingFragment StoreEntitySet="Duyurular">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="DuyuruId" ColumnName="DuyuruId" />
           <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
           <ScalarProperty Name="duyuruIcerik" ColumnName="duyuruIcerik" />
@@ -62,6 +63,9 @@
     <EntitySetMapping Name="Kullanicilar">
       <EntityTypeMapping TypeName="MovieBoxDBModel.Kullanicilar">
         <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="BannedCount" ColumnName="BannedCount" />
+          <ScalarProperty Name="BannedDate" ColumnName="BannedDate" />
+          <ScalarProperty Name="isBanned" ColumnName="isBanned" />
           <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
           <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
           <ScalarProperty Name="KullaniciSoyadi" ColumnName="KullaniciSoyadi" />
@@ -78,6 +82,7 @@
     <EntitySetMapping Name="Oyuncular">
       <EntityTypeMapping TypeName="MovieBoxDBModel.Oyuncular">
         <MappingFragment StoreEntitySet="Oyuncular">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
           <ScalarProperty Name="OyuncuAdi" ColumnName="OyuncuAdi" />
           <ScalarProperty Name="OyuncuSoyadi" ColumnName="OyuncuSoyadi" />
@@ -99,6 +104,7 @@
     <EntitySetMapping Name="Yonetmenler">
       <EntityTypeMapping TypeName="MovieBoxDBModel.Yonetmenler">
         <MappingFragment StoreEntitySet="Yonetmenler">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
           <ScalarProperty Name="YonetmenAdi" ColumnName="YonetmenAdi" />
           <ScalarProperty Name="YonetmenSoyadi" ColumnName="YonetmenSoyadi" />

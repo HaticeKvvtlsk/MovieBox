@@ -74,13 +74,35 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="AdminDashboard\401.html" />
+    <Content Include="AdminDashboard\404.html" />
+    <Content Include="AdminDashboard\500.html" />
+    <Content Include="AdminDashboard\assets\demo\chart-area-demo.js" />
+    <Content Include="AdminDashboard\assets\demo\chart-bar-demo.js" />
+    <Content Include="AdminDashboard\assets\demo\chart-pie-demo.js" />
+    <Content Include="AdminDashboard\assets\demo\datatables-demo.js" />
+    <Content Include="AdminDashboard\assets\img\error-404-monochrome.svg" />
+    <Content Include="AdminDashboard\charts.html" />
+    <Content Include="AdminDashboard\css\styles.css" />
+    <Content Include="AdminDashboard\index.html" />
+    <Content Include="AdminDashboard\js\datatables-simple-demo.js" />
+    <Content Include="AdminDashboard\js\scripts.js" />
+    <Content Include="AdminDashboard\layout-sidenav-light.html" />
+    <Content Include="AdminDashboard\layout-static.html" />
+    <Content Include="AdminDashboard\login.html" />
+    <Content Include="AdminDashboard\password.html" />
+    <Content Include="AdminDashboard\register.html" />
+    <Content Include="AdminDashboard\tables.html" />
     <Content Include="Anasayfa.aspx" />
+    <Content Include="Duyuru.aspx" />
     <Content Include="FilmDetay.aspx" />
     <Content Include="Hata.aspx" />
     <Content Include="JavaScript.js" />
     <Content Include="Kategori.aspx" />
     <Content Include="Kullanicilar.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Oyuncular.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet2.css" />
@@ -115,6 +137,13 @@
     </Compile>
     <Compile Include="Anasayfa.Master.designer.cs">
       <DependentUpon>Anasayfa.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Duyuru.aspx.cs">
+      <DependentUpon>Duyuru.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Duyuru.aspx.designer.cs">
+      <DependentUpon>Duyuru.aspx</DependentUpon>
     </Compile>
     <Compile Include="FilmDetay.aspx.cs">
       <DependentUpon>FilmDetay.aspx</DependentUpon>
@@ -157,6 +186,20 @@
     </Compile>
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Oyuncular.aspx.cs">
+      <DependentUpon>Oyuncular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oyuncular.aspx.designer.cs">
+      <DependentUpon>Oyuncular.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

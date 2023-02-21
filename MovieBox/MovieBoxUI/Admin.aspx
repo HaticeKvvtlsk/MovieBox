@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="MovieBoxUI.Admin1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form runat="server">
     <style type="text/css">
         body {
             font-family: "Open Sans", sans-serif;
@@ -33,6 +32,10 @@
         .table-title .add-new i {
             margin-right: 4px;
         }
+        .header {
+            text-align: center;
+            position: unset;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -45,7 +48,7 @@
 
         </div>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" >
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" RowStyle-Wrap="false" OnRowCommand="GridView1_RowCommand" > 
             <Columns>
                 <asp:TemplateField HeaderText="FilmId">
                     <ItemTemplate>
@@ -297,6 +300,6 @@
             </div>
         </div>
     </div>
-
+    </form>
 
 </asp:Content>

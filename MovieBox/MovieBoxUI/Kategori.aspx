@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Kategori.aspx.cs" Inherits="MovieBoxUI.Kategori" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <form runat="server"> 
         <style>
         #ekle {
             text-align: start;
@@ -134,4 +134,5 @@
             </div>
         </div>
     </div>
+           </form>
 </asp:Content>

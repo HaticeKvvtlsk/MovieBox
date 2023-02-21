@@ -8,6 +8,7 @@
     <Property Name="KullaniciId" Type="int" />
     <Property Name="duyuruIcerik" Type="nvarchar" MaxLength="300" />
     <Property Name="tarih" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Filmler">
     <Key>
@@ -67,6 +68,9 @@
     <Property Name="DogumTarihi" Type="date" />
     <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
     <Property Name="isDeleted" Type="bit" />
+    <Property Name="isBanned" Type="bit" />
+    <Property Name="BannedDate" Type="date" />
+    <Property Name="BannedCount" Type="int" />
   </EntityType>
   <EntityType Name="Oyuncular">
     <Key>
@@ -79,6 +83,7 @@
     <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
     <Property Name="Ulkesi" Type="nvarchar" MaxLength="50" />
     <Property Name="OyuncuOdulleri" Type="nvarchar" MaxLength="200" />
+    <Property Name="isDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Roller">
     <Key>
@@ -96,6 +101,7 @@
     <Property Name="YonetmenSoyadi" Type="nvarchar" MaxLength="50" />
     <Property Name="DogumTarihi" Type="date" />
     <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+    <Property Name="isDeleted" Type="bit" />
   </EntityType>
   <Association Name="FK__Duyurular__Kulla__46E78A0C">
     <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />

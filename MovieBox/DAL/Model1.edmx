@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MovieBoxDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MovieBoxDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Duyurular">
           <Key>
             <PropertyRef Name="DuyuruId" />
@@ -13,6 +13,7 @@
           <Property Name="KullaniciId" Type="int" />
           <Property Name="duyuruIcerik" Type="nvarchar" MaxLength="300" />
           <Property Name="tarih" Type="datetime" />
+          <Property Name="isDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Filmler">
           <Key>
@@ -72,6 +73,9 @@
           <Property Name="DogumTarihi" Type="date" />
           <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
           <Property Name="isDeleted" Type="bit" />
+          <Property Name="isBanned" Type="bit" />
+          <Property Name="BannedDate" Type="date" />
+          <Property Name="BannedCount" Type="int" />
         </EntityType>
         <EntityType Name="Oyuncular">
           <Key>
@@ -84,6 +88,7 @@
           <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
           <Property Name="Ulkesi" Type="nvarchar" MaxLength="50" />
           <Property Name="OyuncuOdulleri" Type="nvarchar" MaxLength="200" />
+          <Property Name="isDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Roller">
           <Key>
@@ -101,6 +106,7 @@
           <Property Name="YonetmenSoyadi" Type="nvarchar" MaxLength="50" />
           <Property Name="DogumTarihi" Type="date" />
           <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+          <Property Name="isDeleted" Type="bit" />
         </EntityType>
         <Association Name="FK__Duyurular__Kulla__46E78A0C">
           <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
@@ -241,8 +247,7 @@
             <End Role="Kullanicilar" EntitySet="Kullanicilar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MovieBoxDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -255,6 +260,7 @@
           <Property Name="duyuruIcerik" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="tarih" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Kullanicilar" Relationship="Self.FK__Duyurular__Kulla__46E78A0C" FromRole="Duyurular" ToRole="Kullanicilar" />
+          <Property Name="isDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Filmler">
           <Key>
@@ -326,6 +332,9 @@
           <NavigationProperty Name="Duyurular" Relationship="Self.FK__Duyurular__Kulla__46E78A0C" FromRole="Kullanicilar" ToRole="Duyurular" />
           <NavigationProperty Name="KullaniciFilmListesi" Relationship="Self.FK__Kullanici__Kulla__4CA06362" FromRole="Kullanicilar" ToRole="KullaniciFilmListesi" />
           <NavigationProperty Name="Roller" Relationship="Self.FK__Kullanici__RolId__45F365D3" FromRole="Kullanicilar" ToRole="Roller" />
+          <Property Name="isBanned" Type="Boolean" />
+          <Property Name="BannedDate" Type="DateTime" Precision="0" />
+          <Property Name="BannedCount" Type="Int32" />
         </EntityType>
         <EntityType Name="Oyuncular">
           <Key>
@@ -339,6 +348,7 @@
           <Property Name="Ulkesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OyuncuOdulleri" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FilmOyuncular" Relationship="Self.FK__FilmOyunc__Oyunc__4AB81AF0" FromRole="Oyuncular" ToRole="FilmOyuncular" />
+          <Property Name="isDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Roller">
           <Key>
@@ -358,6 +368,7 @@
           <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
           <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Filmler" Relationship="Self.FK__Filmler__Yonetme__47DBAE45" FromRole="Yonetmenler" ToRole="Filmler" />
+          <Property Name="isDeleted" Type="Boolean" />
         </EntityType>
         <Association Name="FK__Duyurular__Kulla__46E78A0C">
           <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
@@ -507,6 +518,7 @@
           <EntitySetMapping Name="Duyurular">
             <EntityTypeMapping TypeName="MovieBoxDBModel.Duyurular">
               <MappingFragment StoreEntitySet="Duyurular">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="DuyuruId" ColumnName="DuyuruId" />
                 <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
                 <ScalarProperty Name="duyuruIcerik" ColumnName="duyuruIcerik" />
@@ -565,6 +577,9 @@
           <EntitySetMapping Name="Kullanicilar">
             <EntityTypeMapping TypeName="MovieBoxDBModel.Kullanicilar">
               <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="BannedCount" ColumnName="BannedCount" />
+                <ScalarProperty Name="BannedDate" ColumnName="BannedDate" />
+                <ScalarProperty Name="isBanned" ColumnName="isBanned" />
                 <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
                 <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
                 <ScalarProperty Name="KullaniciSoyadi" ColumnName="KullaniciSoyadi" />
@@ -581,6 +596,7 @@
           <EntitySetMapping Name="Oyuncular">
             <EntityTypeMapping TypeName="MovieBoxDBModel.Oyuncular">
               <MappingFragment StoreEntitySet="Oyuncular">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="OyuncuId" ColumnName="OyuncuId" />
                 <ScalarProperty Name="OyuncuAdi" ColumnName="OyuncuAdi" />
                 <ScalarProperty Name="OyuncuSoyadi" ColumnName="OyuncuSoyadi" />
@@ -602,6 +618,7 @@
           <EntitySetMapping Name="Yonetmenler">
             <EntityTypeMapping TypeName="MovieBoxDBModel.Yonetmenler">
               <MappingFragment StoreEntitySet="Yonetmenler">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="YonetmenId" ColumnName="YonetmenId" />
                 <ScalarProperty Name="YonetmenAdi" ColumnName="YonetmenAdi" />
                 <ScalarProperty Name="YonetmenSoyadi" ColumnName="YonetmenSoyadi" />

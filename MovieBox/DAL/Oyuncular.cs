@@ -27,6 +27,7 @@ namespace DAL
         public string Cinsiyet { get; set; }
         public string Ulkesi { get; set; }
         public string OyuncuOdulleri { get; set; }
+        public Nullable<bool> isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FilmOyuncular> FilmOyuncular { get; set; }

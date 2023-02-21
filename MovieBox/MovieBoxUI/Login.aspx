@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="MovieBoxUI.Login1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="MovieBoxUI.Login1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,22 +12,26 @@
                     <a href="Register.aspx">Sign Up</a>
                 </li>
             </ul>
-            <label for="login-input-user" class="login__label">
-                Username
+            
+            <label for="email" class="login__label">
+                E-Mail :
             </label>
-            <input id="login-input-user" class="login__input" type="text" />
-            <label for="login-input-password" class="login__label">
+            <input id="email" class="login__input" type="email"  name="email" value=""/>
+            <label for="pswd" class="login__label">
                 Password
             </label>
-            <input id="login-input-password" class="login__input" type="password" />
-            <label for="login-sign-up" class="login__label--checkbox">
+            <input id="pswd" class="login__input" type="password" name="pswd" />
+            <label for="login-sign-up" class="login__label--checkbox"  name="pswd" >
                 <input id="login-sign-up" type="checkbox" class="login__input--checkbox" />
                 Keep me Signed in
             </label>
-            <button class="login__submit" disabled>Sign in</button>
+                        <asp:Button ID="Giris" class="login__submit" runat="server" Text="Sign in" OnClick="Giris_Click" />
+           
 
         </div>
         <a href="#" class="login__forgot">Forgot Password?</a>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </asp:Content>

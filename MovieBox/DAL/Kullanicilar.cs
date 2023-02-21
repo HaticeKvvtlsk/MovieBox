@@ -31,6 +31,9 @@ namespace DAL
         public Nullable<System.DateTime> DogumTarihi { get; set; }
         public string Cinsiyet { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+        public Nullable<bool> isBanned { get; set; }
+        public Nullable<System.DateTime> BannedDate { get; set; }
+        public Nullable<int> BannedCount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Duyurular> Duyurular { get; set; }

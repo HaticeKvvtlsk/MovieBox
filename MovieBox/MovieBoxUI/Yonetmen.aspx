@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Yonetmen.aspx.cs" Inherits="MovieBoxUI.Yonetmen" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <form runat="server"> 
       <style>
         #ekle {
             text-align: start;
@@ -184,4 +184,5 @@
             </div>
         </div>
     </div>
+            </form>
 </asp:Content>

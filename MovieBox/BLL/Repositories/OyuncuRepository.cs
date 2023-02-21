@@ -12,7 +12,9 @@ namespace BLL.Repositories
         MovieBoxDBEntities db = new MovieBoxDBEntities();
         public void delete(int itemid)
         {
-            throw new NotImplementedException();
+            Oyuncular silinecek = db.Oyuncular.Find(itemid);
+            silinecek.isDeleted = true;
+            db.SaveChanges();
         }
 
         public List<Oyuncular> GetAll()

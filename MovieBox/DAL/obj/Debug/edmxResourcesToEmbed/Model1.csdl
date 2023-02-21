@@ -9,6 +9,7 @@
     <Property Name="duyuruIcerik" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="tarih" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Kullanicilar" Relationship="Self.FK__Duyurular__Kulla__46E78A0C" FromRole="Duyurular" ToRole="Kullanicilar" />
+    <Property Name="isDeleted" Type="Boolean" />
   </EntityType>
   <EntityType Name="Filmler">
     <Key>
@@ -80,6 +81,9 @@
     <NavigationProperty Name="Duyurular" Relationship="Self.FK__Duyurular__Kulla__46E78A0C" FromRole="Kullanicilar" ToRole="Duyurular" />
     <NavigationProperty Name="KullaniciFilmListesi" Relationship="Self.FK__Kullanici__Kulla__4CA06362" FromRole="Kullanicilar" ToRole="KullaniciFilmListesi" />
     <NavigationProperty Name="Roller" Relationship="Self.FK__Kullanici__RolId__45F365D3" FromRole="Kullanicilar" ToRole="Roller" />
+    <Property Name="isBanned" Type="Boolean" />
+    <Property Name="BannedDate" Type="DateTime" Precision="0" />
+    <Property Name="BannedCount" Type="Int32" />
   </EntityType>
   <EntityType Name="Oyuncular">
     <Key>
@@ -93,6 +97,7 @@
     <Property Name="Ulkesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="OyuncuOdulleri" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="FilmOyuncular" Relationship="Self.FK__FilmOyunc__Oyunc__4AB81AF0" FromRole="Oyuncular" ToRole="FilmOyuncular" />
+    <Property Name="isDeleted" Type="Boolean" />
   </EntityType>
   <EntityType Name="Roller">
     <Key>
@@ -112,6 +117,7 @@
     <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
     <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Filmler" Relationship="Self.FK__Filmler__Yonetme__47DBAE45" FromRole="Yonetmenler" ToRole="Filmler" />
+    <Property Name="isDeleted" Type="Boolean" />
   </EntityType>
   <Association Name="FK__Duyurular__Kulla__46E78A0C">
     <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />

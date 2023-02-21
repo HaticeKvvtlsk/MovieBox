@@ -25,6 +25,7 @@ namespace DAL
         public string YonetmenSoyadi { get; set; }
         public Nullable<System.DateTime> DogumTarihi { get; set; }
         public string Cinsiyet { get; set; }
+        public Nullable<bool> isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filmler> Filmler { get; set; }
